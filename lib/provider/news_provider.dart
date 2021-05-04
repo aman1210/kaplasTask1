@@ -19,7 +19,6 @@ class News with ChangeNotifier {
     var data = responseData['data'] as List<dynamic>;
     List<news.News> temp = [];
     data.forEach((newsItem) {
-      print(newsItem['id']);
       temp.add(
         new news.News(
           id: newsItem['id'],
@@ -30,6 +29,19 @@ class News with ChangeNotifier {
       );
     });
     _news = temp;
+    notifyListeners();
+  }
+
+  void toggleFav(int id) {
+    if (_fav.indexWhere((element) => element.id == id) != -1) {
+      int index = _news.indexWhere((element) => element.id == id);
+      _fav.add(_news[index]);
+      _news.removeAt(index);
+    } else {
+      int index = _fav.indexWhere((element) => element.id == id);
+      _news.add(_fav[index]);
+      _fav.removeAt(index);
+    }
     notifyListeners();
   }
 }
