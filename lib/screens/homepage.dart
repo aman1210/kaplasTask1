@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:kaplas_1/model/news.dart' as news;
+import 'package:provider/provider.dart';
+
 import 'package:kaplas_1/provider/news_provider.dart';
 import 'package:kaplas_1/widgets/custom_bottom_vavbar.dart';
 import 'package:kaplas_1/widgets/favs_list.dart';
 import 'package:kaplas_1/widgets/news_list.dart';
-import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   @override
