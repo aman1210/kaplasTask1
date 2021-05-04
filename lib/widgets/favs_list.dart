@@ -8,13 +8,20 @@ class FavsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<news.News> fav = Provider.of<News>(context).favnews;
-    return AnimatedList(
-      initialItemCount: fav.length,
-      itemBuilder: (context, index, animation) => NewsItem(
-        newsitem: fav[index],
-        index: index,
-        isFav: true,
-      ),
-    );
+    return fav.length == 0
+        ? Center(
+            child: Text(
+              'No Favorites Added Yet!',
+              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+            ),
+          )
+        : AnimatedList(
+            initialItemCount: fav.length,
+            itemBuilder: (context, index, animation) => NewsItem(
+              newsitem: fav[index],
+              index: index,
+              isFav: true,
+            ),
+          );
   }
 }
