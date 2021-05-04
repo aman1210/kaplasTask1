@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:kaplas_1/homepage.dart';
+import 'package:kaplas_1/screens/homepage.dart';
 import 'package:kaplas_1/provider/news_provider.dart';
 import 'package:provider/provider.dart';
 

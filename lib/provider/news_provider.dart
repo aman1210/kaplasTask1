@@ -12,6 +12,10 @@ class News with ChangeNotifier {
     return _news;
   }
 
+  List<news.News> get favnews {
+    return _fav;
+  }
+
   Future<void> getNews() async {
     final Uri uri = Uri.parse("https://api.first.org/data/v1/news");
     var response = await http.get(uri);
@@ -33,7 +37,7 @@ class News with ChangeNotifier {
   }
 
   void toggleFav(int id) {
-    if (_fav.indexWhere((element) => element.id == id) != -1) {
+    if (_fav.indexWhere((element) => element.id == id) == -1) {
       int index = _news.indexWhere((element) => element.id == id);
       _fav.add(_news[index]);
       _news.removeAt(index);
